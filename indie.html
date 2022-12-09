@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Class 12B 2022-23</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="icon" type="image/png" href="/assets/img/spotifyLogo.png" sizes="16x16">
+
+        <!-- Bootstrap CSS v5.2.0-beta1 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- VUE3 -->
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="app" class="d-flex flex-column">
+            <!-- popup de alerta -->
+            <!-- Detectar se o dispositivo é movel -->
+
+
+            <!-- conteudo principal do site -->
+            <div id="principal" class="d-flex" :style="{backgroundColor: corFundo}">
+
+                <!-- menu de navegacao lateral -->
+                <nav id="latNav" class="w-100 pt-4 d-flex flex-column latnav">
+                    <!-- logomarca -->
+                    <a href="#" class="d-flex px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+                        </svg>
+                        <span class="fw-semibold ms-2" style="font-size: 1.5em;">Spotify</span>
+                    </a>
+
+                    <!-- lista de navegacao -->
+                    <ul class="nav flex-column px-2 my-4">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"></path></svg> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"></path></svg> Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>Library</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- de baixo da lista -->
+                    <div id="underList">
+                        <button>
+                            <div class="plusBtn">
+                                <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16"><path d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z"></path></svg>
+                            </div> 
+                            Create Playlist
+                        </button>
+
+                        <button>
+                            <div class="heartBtn">
+                                <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16"><path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path></svg>
+                            </div> 
+                            Liked Songs
+                        </button>
+
+                    </div>
+
+                    <hr class="mx-4 mb-0 mt-2">
+
+                    <!-- lista de playlists na lateral -->
+                    <ul id="listaPlaylistLateral" class="nav px-2">
+                        
+                        <li v-for="playlist in playlistPadrao" :key="playlist.id" class="nav-item"><a :href="playlist.link" class="nav-link">{{ playlist.nome }}</a></li>
+                    </ul>
+
+                    <!-- instalar aplicativo -->
+                    <!-- <a href="#" id="instalarAplicativo" class="d-block px-4 py-2">
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"></path><path d="M12 6.05a1 1 0 011 1v7.486l1.793-1.793a1 1 0 111.414 1.414L12 18.364l-4.207-4.207a1 1 0 111.414-1.414L11 14.536V7.05a1 1 0 011-1z"></path></svg> Instalar aplicativo
+                    </a> -->
+                </nav>
+                
+                <!-- conteudo principal (feed) -->
+                <div id="feed" class="w-100">
+
+                    <!-- menu superior do conteudo -->
+                    <nav id="topNav" class="d-flex justify-content-between align-items-center px-4 py-2" :style="{backgroundColor: corFundo}">
+                        <!-- arrows -->
+                        <div id="arrowMenu">
+                            <button aria-hidden="true" aria-label="Voltar" disabled><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M15.957 2.793a1 1 0 010 1.414L8.164 12l7.793 7.793a1 1 0 11-1.414 1.414L5.336 12l9.207-9.207a1 1 0 011.414 0z"></path></svg></button>
+                            <button aria-hidden="true" aria-label="Avancar" disabled><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M8.043 2.793a1 1 0 000 1.414L15.836 12l-7.793 7.793a1 1 0 101.414 1.414L18.664 12 9.457 2.793a1 1 0 00-1.414 0z"></path></svg></button>
+                        </div>
+
+                        <!-- botoes -->
+                        <div id="btnTopNav" class="d-flex">
+                            <!-- faca upgrade -->
+                            <!-- <button id="upgrade" class="me-2">Premium</button> -->
+
+                            <!-- usuario -->
+                            <div class="dropdown ms-3" id="btnUsuario">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <!-- imagem do usuario -->
+                                    <div class="imgUsuario bg-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                        </svg>
+                                    </div>
+                                    Class 12B
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Class</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <!-- <li><a class="dropdown-item" href="#">Faça o upgrade para o Premium</a></li> -->
+                                    <!-- <li><a class="dropdown-item" href="#">Sair</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                    <!-- feed do conteudo principal -->
+                    <main id="main" class="p-4">
+
+                        <!-- seção inicial (header)
+                        <section id="feedHeader">
+                            
+                            <h2 class="fw-bold">{{ saudacao }}</h2>
+
+                            
+                            <ul id="playlistsRecentes" class="mb-5">
+                                <li v-for="playlist in playlists" :key="playlist.id" @mouseover="mudarCorFundo(playlist.id)" @mouseout="corFundoPrincipal()">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                            
+                                    <span class="fw-semibold ms-3 me-auto">{{playlist.nome}}</span>
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                </li>
+                            </ul>
+                        </section> -->
+
+                        
+                        <!-- <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ tituloParaVoce }}</a></h4>
+                            
+                            <ul class="playlists playGrid">
+
+                                <li v-for="playlist in listaUm" :key="playlist.id">
+                                    <a :href="playlist.link" style="color: white;text-decoration: none;">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </a>
+                                </li>
+                            
+                            </ul>
+                            
+                        </section> -->
+                        <div>
+
+                            <div class="d-flex align-items-end">
+                                <img src="assets/img/daily.png" style="height: 233px; width: 233px; margin: 25px; box-shadow: 10px 10px 20px #16161A, -10px -10px 20px #16161A;">
+                        
+                                <div class="text-white my-4">
+                                    <p class="m-0 font-weight-bold" style="font-size: 0.8em">PLAYLIST</p>
+                                    <p class="m-0 font-weight-bold" style="font-size: 3em; line-height: 1.2em;">i need coffee</p>
+                                    <p class="m-0" style="color: #bbbbbb">blah blah blah blah blah blah blah blah blah</p>
+                                    <p class="m-0"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.soft32.com%2Fblog%2Fwp-content%2Fuploads%2F2016%2F08%2Fspotify_logo.png&f=1&nofb=1" style="height: 25px; width: 25px; margin-right: 5px;"><span class="font-weight-bold">Sharmistha Paul</span> <span style="color:#bbbbbb">• 420 likes • 44 songs, 2 hr 37 mins</span></p>
+                        
+                                </div>
+                            </div>
+                        
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-play-circle fa-4x" style="color: #1ED760; margin: 25px; margin-right: 35px;"></i>
+                                    <i class="fas fa-heart fa-2x" style="color: #1ED760; margin-right: 35px;"></i>
+                                    <i class="fas fa-arrow-circle-down fa-2x" style="margin-right: 35px; color: #bbbbbb"></i>
+                                    <i class="fas fa-ellipsis-h fa-2x" style="color: #bbbbbb"></i>
+                        
+                                </div>
+                                <p><i class="fas fa-search"></i>Search in playlist</p>
+                            </div>
+                        
+                            <div style="display: flex; justify-content: center;">
+                                <table style="width: 95%; color: #bbbbbb;">
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td>
+                                            <a href="#" class="aHover">
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://e.snmc.io/i/fullres/s/9d529e8f2a5928f3367d203bd9a6f683/2366794" style="height: 40px; width: 40px; margin: 15px;">
+                                                <p class="m-0" style="line-height: 1.2em;">
+                                                    <span style="color: #ffffff; font-size: 1.15em;">Paparazzi</span> <br>Lady Gaga
+                                                </p>
+                                            </div>
+                                        </a>
+                                        </td>
+                                        <td>The Fame</td>
+                                        <td>Aug 19, 2008</td>
+                                        <td><i class="fas fa-heart" style="color: #1ED760;"></i></td>
+                                        <td>3:28</td>
+                                    </tr>
+                                    
+                                </table>
+                        
+                            </div>
+                        </div>
+<!--                         
+                        <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ tituloTocadaRecentemente }}</a></h4>
+
+                            <ul class="playlists">
+                                <li v-for="playlist in listaDois" :key="playlist.id">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </li>
+                            </ul>
+                        </section> 
+
+                       
+                        <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ mixesMaisOuvidos }}</a></h4>
+
+                            <ul class="playlists">
+                                <li v-for="playlist in listaTres" :key="playlist.id">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </li>
+                            </ul>
+                        </section>
+                    -->
+                    </main>
+                </div>
+            </div>
+            
+            <!-- barra de audio -->
+            <div id="audioBar" class="p-3 d-flex justify-content-between">
+                <!-- musica a tocar -->
+                <div id="musicaPlay"></div>
+                
+                <!-- caixa central -->
+                <div id="caixaCentral" class="d-flex flex-column align-items-center">
+                    <!-- caixa com as setas -->
+                    <div id="caixaSetas" class="d-flex align-items-center">    
+                        <button type="button" class="icones aleatorio"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M13.151.922a.75.75 0 10-1.06 1.06L13.109 3H11.16a3.75 3.75 0 00-2.873 1.34l-6.173 7.356A2.25 2.25 0 01.39 12.5H0V14h.391a3.75 3.75 0 002.873-1.34l6.173-7.356a2.25 2.25 0 011.724-.804h1.947l-1.017 1.018a.75.75 0 001.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 00.39 3.5z"></path><path d="M7.5 10.723l.98-1.167.957 1.14a2.25 2.25 0 001.724.804h1.947l-1.017-1.018a.75.75 0 111.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 11-1.06-1.06L13.109 13H11.16a3.75 3.75 0 01-2.873-1.34l-.787-.938z"></path></svg></button>
+                        
+                        <button type="button" class="icones anterior"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path></svg></button>
+                        
+                        <button type="button" class="btn playPause"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                        
+                        <button type="button" class="icones proximo"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path></svg></button>
+    
+                        <button type="button" class="icones repetir"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z"></path></svg></button>
+                    </div>
+
+                    <div id="barraDeProgresso"><small>20:22</small><input type="range"><small>20:23</small></div>
+                </div>
+
+                <!-- config audio -->
+                <div id="configAudio" class="d-flex align-items-center">
+                    <button type="button" class="icones legenda"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M13.426 2.574a2.831 2.831 0 00-4.797 1.55l3.247 3.247a2.831 2.831 0 001.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 004.74 9.075L2.065 12.12a1.287 1.287 0 001.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 114.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 01-3.933-3.933l2.676-3.045 3.505-3.99z"></path></svg></button>
+                    <button type="button" class="icones lista"><svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 013.5 1h9a2.5 2.5 0 010 5h-9A2.5 2.5 0 011 3.5zm2.5-1a1 1 0 000 2h9a1 1 0 100-2h-9z"></path></svg></button>
+                    <button type="button" class="icones outrosDispositivos"><svg role="img" height="16" width="16" aria-label="Conectar a um dispositivo" viewBox="0 0 16 16"><path d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0114.25 15h-6.5A1.75 1.75 0 016 13.25V2.75zm1.75-.25a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 00.25-.25V2.75a.25.25 0 00-.25-.25h-6.5zm-6 0a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 010 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"></path><path d="M13 10a2 2 0 11-4 0 2 2 0 014 0zm-1-5a1 1 0 11-2 0 1 1 0 012 0z"></path></svg></button>
+                    
+                    <div id="volume">
+                        <button type="button" class="icones outrosDispositivos"><svg role="presentation" height="16" width="16" aria-label="Volume médio" id="volume-icon" viewBox="0 0 16 16"><path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path></svg></button>
+                        <input type="range">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+
+
+        <!-- VUE JS -->
+        <script>
+            const { createApp } = Vue
+            
+
+            createApp({
+                data() {
+                    return {
+                        eMovel: false,
+
+                        corFundo: 'rgb(120,4,16)',
+
+                        // playlists recentes
+                        playlists: [
+                            {
+                                id: 1,
+                                nome: '12B Gang',
+                                img: 'assets/img/daily.png'
+                            },
+                            {
+                                id: 2,
+                                nome: 'Jazz',
+                                img: 'assets/img/daily2.png'
+                            },
+                            {
+                                id: 3,
+                                nome: 'Rock',
+                                img: 'assets/img/daily3.png'
+                            },
+                            {
+                                id: 4,
+                                nome: 'Pop',
+                                img: 'assets/img/daily4.png'
+                            },
+                            {
+                                id: 5,
+                                nome: 'Indie',
+                                img: 'assets/img/daily5.png'
+                            },
+                            {
+                                id: 6,
+                                nome: 'Techno',
+                                img: 'assets/img/daily6.png'
+                            }
+                        ],
+                        
+                        // TITULOS AQUI PARA FACILITAR TRADUÇÃO **
+                        // feito para você
+                        tituloParaVoce: 'Playlists',
+                        // tocadas recentemente
+
+                        // tituloTocadaRecentemente: 'Recommendations',
+                        // // seus mixes mais ouvidos
+                        // mixesMaisOuvidos: 'More soomethings', 
+
+                        // playlists de exemplo
+                        playlistPadrao: [
+                            {
+                                id: 1,
+                                nome: 'Abdullah Hamid',
+                                img: 'assets/img/daily.png',
+                                subtitulo: 'Hum Nahi Sudhrenge',
+                                link: 'https://open.spotify.com/track/4fcmI0GDxSzAYPz3jqYiw0?si=3834ddf2e10f4588ne'
+                            },
+                            {
+                                id: 2,
+                                nome: 'Alankrita Pratik',
+                                img: 'assets/img/daily2.png',
+                                subtitulo: 'Tashreef',
+                                link: 'https://open.spotify.com/track/6qdjHvpPFRk7RHLMkDdlzt?si=757a2cc68d744328'
+                            },
+                            {
+                                id: 3,
+                                nome: 'Anupriya Bajpal',
+                                img: 'assets/img/daily3.png',
+                                subtitulo: 'Night Changes',
+                                link: 'onehttps://open.spotify.com/track/5O2P9iiztwhomNh8xkR9lJ?si=0c1f83ed55354fbd'
+                            },
+                            {
+                                id: 4,
+                                nome: 'Nikita Mantri',
+                                img: 'assets/img/daily4.png',
+                                subtitulo: 'Bachana Ae Haseeno',
+                                link: 'https://open.spotify.com/track/2MDtM4IFflIr2I3FUMFNX2?si=feac9c770aaf4598'
+                            },
+                            {
+                                id: 5,
+                                nome: 'Varun Khanna',
+                                img: 'assets/img/daily5.png',
+                                subtitulo: 'student name',
+                                link: 'one'
+                            },
+                            {
+                                id: 6,
+                                nome: 'Aarav Shah',
+                                img: 'assets/img/daily6.png',
+                                subtitulo: 'student name',
+                                link: 'one'
+                            },
+                            {
+                                id: 7,
+                                nome: 'Diya Thakkar ',
+                                img: 'assets/img/daily6.png',
+                                subtitulo: 'Ek Zindagi',
+                                link: 'https://open.spotify.com/track/6shPaz0rzOAGatiY6X6zLQ?si=500da58221e64977'
+                            },
+                            {
+                                id: 8,
+                                nome: 'Urjaa Reddy',
+                                img: 'assets/img/daily6.png',
+                                subtitulo: 'My Mind and Me',
+                                link: 'https://open.spotify.com/track/0XER3HPMx223xWaAgNKp4Y?si=4fec7ac80e3a43ee'
+                            },
+                            {
+                                 id: 9,
+                                 nome: 'Aarav Shah',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'no idea',
+                                 link: 'blank',
+                            },
+                            {
+                                 id: 10,
+                                 nome: 'Karm Patel',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Jagga Jiteya',
+                                 link: 'https://open.spotify.com/track/2kLFzLJgHtreNbNlbVzQy4?si=7992a86534254707',
+                            },
+                            {
+                                 id: 11,
+                                 nome: 'Avnish Chaudhary',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Belugacito',
+                                 link: 'no idea',
+                            },
+                            {
+                                 id: 12,
+                                 nome: 'Disha Mohan',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Ratta Maar',
+                                 link: 'https://open.spotify.com/track/24wb8Da2xkll8xZTjz0P6J?si=d3b42cc924a74e70',
+                            },
+                            {
+                                 id: 13,
+                                 nome: 'Maahi Shah',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Better When Im Dancing',
+                                 link: 'https://open.spotify.com/track/5k5fWendNngd89O8JKoE8L?si=2f0692d33409452d',
+                            },
+                            {
+                                 id: 14,
+                                 nome: 'Saumyak Aich',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'The Lazy Song',
+                                 link: 'https://open.spotify.com/track/386RUes7n1uM1yfzgeUuwp?si=7f8d13fdcad343a0',
+                            },
+                            {
+                                 id: 15,
+                                 nome: 'Vatsal Toprani',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Hakuna Matata',
+                                 link: 'https://open.spotify.com/track/5k3U0OGYBccHdKJJu3HrUN?si=4a427d8d4e354548',
+                            },
+                            {
+                                 id: 16,
+                                 nome: 'Sankalp Vyas',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'idk',
+                                 link: 'blank',
+                            },
+                            {
+                                 id: 17,
+                                 nome: 'Saishree Manhas',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Hungamaa Ho Gaya',
+                                 link: 'https://open.spotify.com/track/3gv6ZRvumAlDJufUM93hfv?si=ecd4649331c345a1',
+                            },
+                            {
+                                 id: 18,
+                                 nome: 'Arushi Audichya',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Kal Ho Naa Ho',
+                                 link: 'https://open.spotify.com/track/251PNRmJU9KcUnFQAB5t6I?si=431a980d4a864cea',
+                            },
+                            {
+                                 id: 19,
+                                 nome: 'Arushi Audichya',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Kal Ho Na Ho',
+                                 link: 'https://open.spotify.com/track/251PNRmJU9KcUnFQAB5t6I?si=431a980d4a864cea',
+                            },
+                            {
+                                 id: 20,
+                                 nome: 'Haiya Patel',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Night Changes',
+                                 link: 'https://open.spotify.com/track/5O2P9iiztwhomNh8xkR9lJ?si=fbbd341322fa4ec2',
+                            },
+                            {
+                                 id: 21,
+                                 nome: 'Asmita Ghosh',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Khwabon ke Parinde',
+                                 link: 'https://open.spotify.com/track/14eotumM24MhIgzidgN3Jx?si=dbe16606dc0140ba',
+                            },
+                            {
+                                 id: 22,
+                                 nome: 'Ishwa Shah',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Desi Girl',
+                                 link: 'https://open.spotify.com/track/3Qpk2qHree1RTH5lZaKnEK?si=9fbc032ce8104351',
+                            },
+                            {
+                                 id: 23,
+                                 nome: 'Shipra Desai',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Ill Be There For You',
+                                 link: 'https://open.spotify.com/track/3Qpk2qHree1RTH5lZaKnEK?si=9fbc032ce8104351',
+                            },
+                            {
+                                 id: 24,
+                                 nome: 'Vedika Srinivas',
+                                 img: 'assets/img/daily6.png',
+                                 subtitulo: 'Main Aisa Kyun Hoon',
+                                 link: 'https://open.spotify.com/track/3Qpk2qHree1RTH5lZaKnEK?si=9fbc032ce8104351',
+                            }
+                        ]
+                    }
+                },
+
+                computed: {
+                    // saudacao de "Bom dia", "Boa tarde" e "Boa noite"
+                    saudacao() {
+                        var horario = new Date().getHours()
+                        
+                        if (horario >= 18 || horario == 0) {
+                            return 'Good Evening!'
+                        }else if (horario >= 12) {
+                            return 'Good Afternoon!'
+                        }else if(horario >= 01) {
+                            return 'Good Morning!'
+                        }
+                    },
+
+                    // mostrar as playlists em ordem diferente
+                    listaUm() {
+                        let listaUm = this.playlistPadrao
+                        return listaUm.sort(() => Math.random() - 0.5)
+                    },
+                    listaDois() {
+                        let listaDois = this.playlistPadrao
+                        return listaDois.sort(() => Math.random() - 0.5)
+                    },
+                    listaTres() {
+                        let listaTres = this.playlistPadrao
+                        return listaTres.sort(() => Math.random() - 0.5)
+                    }
+                },
+
+                methods: {
+                    corFundoPrincipal() {
+                        this.corFundo = 'rgb(120,4,16)'
+                    },
+                    mudarCorFundo(n) {
+                        switch (n) {
+                            case 2:
+                                this.corFundo = 'rgb(36, 0, 4)'
+                                break;
+                            case 3:
+                                this.corFundo = 'rgb(4, 116, 120)'
+                                break;
+                            case 4:
+                                this.corFundo =  'rgb(2, 29, 102)'
+                                break;
+                            case 5:
+                                this.corFundo =  'rgb(121, 77, 15)'
+                                break;
+                            case 6:
+                                this.corFundo =  'rgb(73, 53, 55)'
+                                break;
+                            default:
+                                break;
+                        }  
+                    }
+                }
+            }).mount('#app')
+        </script>
+
+
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        
+        <script>
+            // detectar se o dispositivel é móvel
+            function isMobile(params) {
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    var myModalEl = document.getElementById('exampleModal');
+                    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+                        keyboard: false
+                    });
+                    
+                    myModal.show()
+                }
+            }isMobile()
+        </script>
+    </body>
+</html>
