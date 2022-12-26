@@ -130,10 +130,16 @@
                             <!-- playlists recentes -->
                             <ul id="playlistsRecentes" class="mb-5">
                                 <li v-for="playlist in playlists" :key="playlist.id" @mouseover="mudarCorFundo(playlist.id)" @mouseout="corFundoPrincipal()">
+                                    <a :href="playlist.link">
                                     <img :src="playlist.img" :alt="playlist.nome">
+                                </a>
                                     <!-- <span class="fw-semibold ms-3 me-auto">{{ playlist.nome }}</span> -->
+                                
                                     <span class="fw-semibold ms-3 me-auto">{{playlist.nome}}</span>
+                                
+                                    <a :href="playlist.link">
                                     <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                </a>
                                 </li>
                             </ul>
                         </section>
@@ -247,32 +253,38 @@
                             {
                                 id: 1,
                                 nome: '12B Gang',
-                                img: 'assets/img/daily.png'
+                                img: 'assets/img/daily.png',
+                                link: '/gang.html'
                             },
                             {
                                 id: 2,
                                 nome: 'Jazz',
-                                img: 'assets/img/daily2.png'
+                                img: 'assets/img/daily2.png',
+                                link: '/jazz.html'
                             },
                             {
                                 id: 3,
                                 nome: 'Rock',
-                                img: 'assets/img/daily3.png'
+                                img: 'assets/img/daily3.png',
+                                link: '/rock.html'
                             },
                             {
                                 id: 4,
                                 nome: 'Pop',
-                                img: 'assets/img/daily4.png'
+                                img: 'assets/img/daily4.png',
+                                link: '/pop.html'
                             },
                             {
                                 id: 5,
                                 nome: 'Indie',
-                                img: 'assets/img/daily5.png'
+                                img: 'assets/img/daily5.png',
+                                link: '/indie.html'
                             },
                             {
                                 id: 6,
-                                nome: 'Techno',
-                                img: 'assets/img/daily6.png'
+                                nome: 'HipHop',
+                                img: 'assets/img/daily6.png',
+                                link: '/hiphop.html'
                             }
                         ],
                         
